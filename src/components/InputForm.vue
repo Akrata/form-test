@@ -1,6 +1,5 @@
 <template>
-    <form @submit.prevent="procesarFormulario">
-      <input 
+  <input 
       type="text"
       class="form-control my-2"
       placeholder="Ingrese nombre"
@@ -66,16 +65,19 @@
     >
       Procesar
     </button>
-    
-  </form>
 </template>
 
 <script>
 export default {
-    name:'Formulario',
-    props:{
-        tarea: Object,
+name:'InputForm',
+props:{
+    tarea: Object,
+},
+computed: {
+    bloquear(){
+      return this.tarea.nombre.trim() === "" ? true : false
     }
+  }
 }
 </script>
 
